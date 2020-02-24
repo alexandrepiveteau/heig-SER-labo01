@@ -8,3 +8,9 @@ script:
   - cd src/main/resources
   - echo "Validation of easychess.xml"
   - xmllint --dtdvalid easychess.dtd --noout easychess.xml
+
+addons:
+  apt:
+    packages:
+      # Needed for `xmllint`.
+      - libxml2-utils
