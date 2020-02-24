@@ -6,6 +6,5 @@ cache:
 
 script:
   - cd src/main/resources
-  - xml
-  - echo ""
-  - mvn clean package
+  - echo "Validation of easychess.xml"
+  - xmllint --dtdvalid easychess.dtd --noout easychess.xml
