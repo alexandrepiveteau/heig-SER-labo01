@@ -1,0 +1,11 @@
+language: java
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script:
+  - cd src/main/resources
+  - xml
+  - echo ""
+  - mvn clean package

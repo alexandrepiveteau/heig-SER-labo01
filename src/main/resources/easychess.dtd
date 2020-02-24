@@ -1,0 +1,35 @@
+<!ELEMENT EasyChess (Tournoi*)>
+
+  <!-- TODO : Vainqueurs de tournois ? Pas explicitement demandé. -->
+  <!ELEMENT Tournoi (Partie*)>
+
+  <!ELEMENT Partie (Arbitre, Equipe, Equipe, Coups)>
+
+  <!-- TODO : Voir si on peut forcer le format des données rentrées. -->
+  <!ATTLIST Partie Date CDATA #REQUIRED>
+
+  <!-- Conventions blanc / noir plutôt qu'autre chose ? -->
+  <!ELEMENT Equipe (Joueur, Joueur)>
+  <!ATTLIST Equipe Resultat (0|0.5|1|1.5|2) #REQUIRED>
+
+  <!ELEMENT Arbitre (Prenom, Nom)>
+
+  <!ELEMENT Joueur (Prenom, Nom, ScoreElo)>
+  <!ATTLIST Joueur NumeroSsn ID #REQUIRED>
+
+  <!ELEMENT Prenom (#PCDATA)>
+  <!ELEMENT Nom (#PCDATA)>
+
+  <!-- TODO : Make this an attribute of player ? -->
+  <!ELEMENT ScoreElo (#PCDATA)>
+
+  <!-- MARK Définition des coups d'une partie. -->
+  <!ELEMENT Coups (Deplacement+)>
+  <!ELEMENT Deplacement (Case, Case?)>
+  <!ATTLIST Deplacement TypeDePiece (Pion|Tour|Cavalier|Fou|Dame|Roi) #REQUIRED>
+  <!ELEMENT Roque EMPTY>
+
+  <!-- MARK : Définition des cases et de leurs attributs. -->
+  <!ELEMENT Case EMPTY>
+  <!ATTLIST Case Axe1 (A|B|C|D|E|F|G|H) #REQUIRED>
+  <!ATTLIST Case Axe2 (1|2|3|4|5|6|7|8) #REQUIRED>
