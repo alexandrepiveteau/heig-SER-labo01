@@ -41,7 +41,11 @@
           <Case Axe1="A" Axe2="5"/>
         </Deplacement>
       </Coups>
-      <DateTest Jour="85" Mois="100" Annee="1999"/>
+      <DateHeureTest>
+        <DateTest Jour="85" Mois="100" Annee=""/>
+        <HeureTest Heures="1000" Minutes=""/>
+      </DateHeureTest>
+
     </Partie>
   </Tournoi>
 
