@@ -5,12 +5,12 @@
   <!ELEMENT Tournoi (Partie*, Vainqueur)>
 <!ELEMENT Vainqueur (Equipe)>
 
-  <!ELEMENT Partie (Arbitre, Equipe, Equipe, Coups)>
+  <!ELEMENT Partie (Arbitre, Equipe, Equipe, Coups, DateTest)>
 
   <!-- TODO : Voir si on peut forcer le format des données rentrées. -->
-  <!ATTLIST Partie Date CDATA #REQUIRED>
+  <!--ATTLIST Partie Date CDATA #REQUIRED>
 <!ELEMENT Date (Jour, Mois, Annee)>
-<!--ELEMENT Jour (#PCDATA)>
+<!ELEMENT Jour (#PCDATA)>
 <!ELEMENT Mois (#PCDATA)>
 <!ELEMENT Annee (#PCDATA)-->
 
@@ -34,9 +34,13 @@
   <!ELEMENT Coups (Echiquier, Deplacement+)>
   <!ELEMENT Deplacement (Case, Case?)>
   <!ATTLIST Deplacement TypeDePiece (Pion|Tour|Cavalier|Fou|Dame|Roi) #REQUIRED>
+<!ATTLIST Deplacement PieceEliminee (Cavalier|Fou|Dame|Tour|Pion)>
+<!ATTLIST Deplacement Promotion (Cavalier|Fou|Dame|Tour)>
+<!ATTLIST Deplacement Situation (EchecMat| EchecRoi| PartieNulle)>
   <!ELEMENT Roque EMPTY>
-<!ATTLIST Roque (Grand | Petit)>
-<!ATTLIST Echiquier No (A|B) mode>
+<!ATTLIST Roque (Grand | Petit) #REQUIRED>
+<!ELEMENT Echiquier EMPTY>
+<!ATTLIST Echiquier No (A|B) #REQUIRED>
 
   <!-- MARK : Définition des cases et de leurs attributs. -->
   <!ELEMENT Case EMPTY>
@@ -44,8 +48,9 @@
   <!ATTLIST Case Axe2 (1|2|3|4|5|6|7|8) #REQUIRED>
 
 <!ATTLIST Chiffres (0|1|2|3|4|5|6|7|8|9) >
-        <!ATTLIST DateTest Jour (Chiffres+) mode>
-        <!ATTLIST DateTest Mois (Chiffres+) mode>
-        <!ATTLIST DateTest Annee (Chiffres+) mode>
+<!ELEMENT DateTest EMPTY>
+        <!ATTLIST DateTest Jour (Chiffres+) >
+        <!ATTLIST DateTest Mois (Chiffres+) >
+        <!ATTLIST DateTest Annee (Chiffres+) >
 
 <!ELEMENT Test (DateTest)>
