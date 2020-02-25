@@ -1,17 +1,24 @@
 <!ELEMENT EasyChess (Tournoi*)>
 
   <!-- TODO : Vainqueurs de tournois ? Pas explicitement demandé. -->
-  <!ELEMENT Tournoi (Partie*)>
+        <!-- Si, c'est à la fin . -->
+  <!ELEMENT Tournoi (Partie*, Vainqueur)>
+<!ELEMENT Vainqueur (Equipe)>
 
   <!ELEMENT Partie (Arbitre, Equipe, Equipe, Coups)>
 
   <!-- TODO : Voir si on peut forcer le format des données rentrées. -->
   <!ATTLIST Partie Date CDATA #REQUIRED>
+<!ELEMENT Date (Jour, Mois, Annee)>
+<!--ELEMENT Jour (#PCDATA)>
+<!ELEMENT Mois (#PCDATA)>
+<!ELEMENT Annee (#PCDATA)-->
 
   <!-- Conventions blanc / noir plutôt qu'autre chose ? -->
   <!ELEMENT Equipe (Joueur, Joueur)>
   <!ATTLIST Equipe Resultat (0|0.5|1|1.5|2) #REQUIRED>
 
+<!-- TODO : est ce qu'il faut "factoriser" Nom Prenom en Personne? -->
   <!ELEMENT Arbitre (Prenom, Nom)>
 
   <!ELEMENT Joueur (Prenom, Nom, ScoreElo)>
@@ -24,12 +31,21 @@
   <!ELEMENT ScoreElo (#PCDATA)>
 
   <!-- MARK Définition des coups d'une partie. -->
-  <!ELEMENT Coups (Deplacement+)>
+  <!ELEMENT Coups (Echiquier, Deplacement+)>
   <!ELEMENT Deplacement (Case, Case?)>
   <!ATTLIST Deplacement TypeDePiece (Pion|Tour|Cavalier|Fou|Dame|Roi) #REQUIRED>
   <!ELEMENT Roque EMPTY>
+<!ATTLIST Roque (Grand | Petit)>
+<!ATTLIST Echiquier No (A|B) mode>
 
   <!-- MARK : Définition des cases et de leurs attributs. -->
   <!ELEMENT Case EMPTY>
   <!ATTLIST Case Axe1 (A|B|C|D|E|F|G|H) #REQUIRED>
   <!ATTLIST Case Axe2 (1|2|3|4|5|6|7|8) #REQUIRED>
+
+<!ATTLIST Chiffres (0|1|2|3|4|5|6|7|8|9) >
+        <!ATTLIST DateTest Jour (Chiffres+) mode>
+        <!ATTLIST DateTest Mois (Chiffres+) mode>
+        <!ATTLIST DateTest Annee (Chiffres+) mode>
+
+<!ELEMENT Test (DateTest)>
