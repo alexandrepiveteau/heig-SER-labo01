@@ -4,7 +4,7 @@
 <EasyChess>
 
   <Tournoi>
-    <Partie Date="2020-02-25 15:56:00">
+    <Partie>
       <Arbitre>
         <Prenom>Maria</Prenom>
         <Nom>Wills</Nom>
@@ -41,6 +41,7 @@
           <Case Axe1="A" Axe2="5"/>
         </Deplacement>
       </Coups>
+      <DateTest Jour="85" Mois="100" Annee="1999"/>
     </Partie>
   </Tournoi>
 
