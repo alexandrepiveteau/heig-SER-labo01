@@ -51,7 +51,7 @@
         <move type="pawn">
           <cell x="A" y="3"/>
         </move>
-        <move type="pawn" accouncement="check" takes="24">
+        <move type="pawn" accouncement="check" takes="pawn">
           <cell x="A" y="5"/>
         </move>
         <castling type="big">

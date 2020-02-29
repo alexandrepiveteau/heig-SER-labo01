@@ -37,8 +37,8 @@
   <!ELEMENT moves (move|castling)*>
   <!ELEMENT move (cell, cell?)>
   <!ATTLIST move type (pawn|rook|knight|bishop|queen|king) #REQUIRED>
-  <!ATTLIST move takes ((pawn|rook|knight|bishop|queen|king)>
-  <!ATTLIST move accouncement (checkmate|check|draw)>
+  <!ATTLIST move takes (pawn|rook|knight|bishop|queen|king) #IMPLIED>
+  <!ATTLIST move accouncement (checkmate|check|draw) #IMPLIED>
   <!ELEMENT castling (cell, cell?)>
   <!ATTLIST castling type (small|big) #REQUIRED>
 
