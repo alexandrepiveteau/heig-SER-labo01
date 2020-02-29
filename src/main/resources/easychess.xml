@@ -3,45 +3,64 @@
 <!DOCTYPE EasyChess SYSTEM "easychess.dtd">
 <EasyChess>
 
-  <Tournoi>
-    <Partie Date="2020-02-25 15:56:00">
-      <Arbitre>
-        <Prenom>Maria</Prenom>
-        <Nom>Wills</Nom>
-      </Arbitre>
-      <Equipe Resultat="0.5">
-        <Joueur NumeroSsn="Ssn1">
-          <Prenom>Stacy</Prenom>
-          <Nom>Waller</Nom>
-          <ScoreElo>1700</ScoreElo>
-        </Joueur>
-        <Joueur NumeroSsn="Ssn2">
-          <Prenom>Hashir</Prenom>
-          <Nom>Avila</Nom>
-          <ScoreElo>1800</ScoreElo>
-        </Joueur>
-      </Equipe>
-      <Equipe Resultat="1.5">
-        <Joueur NumeroSsn="Ssn3">
-          <Prenom>Lucas</Prenom>
-          <Nom>Horner</Nom>
-          <ScoreElo>1654</ScoreElo>
-        </Joueur>
-        <Joueur NumeroSsn="Ssn4">
-          <Prenom>Sienna</Prenom>
-          <Nom>Hart</Nom>
-          <ScoreElo>1864</ScoreElo>
-        </Joueur>
-      </Equipe>
-      <Coups>
-        <Deplacement TypeDePiece="Pion">
-          <Case Axe1="A" Axe2="3"/>
-        </Deplacement>
-        <Deplacement TypeDePiece="Pion">
-          <Case Axe1="A" Axe2="5"/>
-        </Deplacement>
-      </Coups>
-    </Partie>
-  </Tournoi>
+  <player ssn="Ssn1">
+    <first-name>Stacy</first-name>
+    <last-name>Waller</last-name>
+    <elo-ranking>1700</elo-ranking>
+  </player>
+
+  <player ssn="Ssn2">
+    <first-name>Hashir</first-name>
+    <last-name>Avila</last-name>
+    <elo-ranking>1800</elo-ranking>
+  </player>
+
+  <player ssn="Ssn3">
+    <first-name>Lucas</first-name>
+    <last-name>Horner</last-name>
+    <elo-ranking>1654</elo-ranking>
+  </player>
+
+  <player ssn="Ssn4">
+    <first-name>Sienna</first-name>
+    <last-name>Hart</last-name>
+    <elo-ranking>1864</elo-ranking>
+  </player>
+
+  <tournament>
+
+    <game>
+
+      <date hour="14:05" day="01" month="jan" year="2020"/>
+      <referee>
+        <first-name>Maria</first-name>
+        <last-name>Wills</last-name>
+      </referee>
+
+      <white-team score="0.5">
+        <team-mate person="Ssn1"/>
+        <team-mate person="Ssn2"/>
+      </white-team>
+
+      <black-team score="1.5">
+        <team-mate person="Ssn3"/>
+        <team-mate person="Ssn4"/>
+      </black-team>
+
+      <moves>
+        <move type="pawn">
+          <cell x="A" y="3"/>
+        </move>
+        <move type="pawn" accouncement="check" takes="24">
+          <cell x="A" y="5"/>
+        </move>
+        <castling type="big">
+          <cell x="B" y="4"/>
+        </castling>
+      </moves>
+
+    </game>
+
+  </tournament>
 
 </EasyChess>

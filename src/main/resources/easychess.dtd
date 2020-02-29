@@ -1,35 +1,48 @@
-<!ELEMENT EasyChess (Tournoi*)>
+<!ELEMENT EasyChess (player*, tournament*)>
 
-  <!-- TODO : Vainqueurs de tournois ? Pas explicitement demandé. -->
-  <!ELEMENT Tournoi (Partie*)>
+  <!-- MARK : Player definitions. -->
+  <!-- NOTE : Players are shared amongst the different tournaments, since
+  they're part of a single club. -->
+  <!ELEMENT player (first-name, last-name, elo-ranking)>
+  <!ATTLIST player ssn ID #REQUIRED>
+  <!ELEMENT first-name (#PCDATA)>
+  <!ELEMENT last-name (#PCDATA)>
+  <!ELEMENT elo-ranking (#PCDATA)>
 
-  <!ELEMENT Partie (Arbitre, Equipe, Equipe, Coups)>
+  <!-- MARK : Tournaments and games. -->
+  <!ELEMENT tournament (game*)>
+  <!ELEMENT game (date, referee, white-team, black-team, moves)>
 
-  <!-- TODO : Voir si on peut forcer le format des données rentrées. -->
-  <!ATTLIST Partie Date CDATA #REQUIRED>
+  <!-- MARK : Dates and time definitions. -->
+  <!ELEMENT date EMPTY>
+  <!ATTLIST date hour CDATA #REQUIRED>
+  <!ATTLIST date day CDATA #REQUIRED>
+  <!ATTLIST date month (jan|feb|mar|apr|may|jun|jul|aug|set|nov|dec) #REQUIRED>
+  <!ATTLIST date year CDATA #REQUIRED>
 
-  <!-- Conventions blanc / noir plutôt qu'autre chose ? -->
-  <!ELEMENT Equipe (Joueur, Joueur)>
-  <!ATTLIST Equipe Resultat (0|0.5|1|1.5|2) #REQUIRED>
+  <!-- MARK : Teams definitions. -->
+  <!-- NOTE : We make the explicit choice to model black and white teams with
+  different tags, as we deemed that color inference based on position was not
+  explicit enough.-->
+  <!ELEMENT white-team (team-mate, team-mate)>
+  <!ELEMENT black-team (team-mate, team-mate)>
+  <!ATTLIST white-team score (0|0.5|1|1.5|2) #REQUIRED>
+  <!ATTLIST black-team score (0|0.5|1|1.5|2) #REQUIRED>
+  <!ELEMENT team-mate EMPTY>
+  <!ATTLIST team-mate person IDREF #REQUIRED>
 
-  <!ELEMENT Arbitre (Prenom, Nom)>
+  <!ELEMENT referee (first-name, last-name)>
 
-  <!ELEMENT Joueur (Prenom, Nom, ScoreElo)>
-  <!ATTLIST Joueur NumeroSsn ID #REQUIRED>
+  <!-- MARK : Possible moves in a game -->
+  <!ELEMENT moves (move|castling)*>
+  <!ELEMENT move (cell, cell?)>
+  <!ATTLIST move type (pawn|rook|knight|bishop|queen|king) #REQUIRED>
+  <!ATTLIST move takes ((pawn|rook|knight|bishop|queen|king)>
+  <!ATTLIST move accouncement (checkmate|check|draw)>
+  <!ELEMENT castling (cell, cell?)>
+  <!ATTLIST castling type (small|big) #REQUIRED>
 
-  <!ELEMENT Prenom (#PCDATA)>
-  <!ELEMENT Nom (#PCDATA)>
-
-  <!-- TODO : Make this an attribute of player ? -->
-  <!ELEMENT ScoreElo (#PCDATA)>
-
-  <!-- MARK Définition des coups d'une partie. -->
-  <!ELEMENT Coups (Deplacement+)>
-  <!ELEMENT Deplacement (Case, Case?)>
-  <!ATTLIST Deplacement TypeDePiece (Pion|Tour|Cavalier|Fou|Dame|Roi) #REQUIRED>
-  <!ELEMENT Roque EMPTY>
-
-  <!-- MARK : Définition des cases et de leurs attributs. -->
-  <!ELEMENT Case EMPTY>
-  <!ATTLIST Case Axe1 (A|B|C|D|E|F|G|H) #REQUIRED>
-  <!ATTLIST Case Axe2 (1|2|3|4|5|6|7|8) #REQUIRED>
+  <!-- MARK : Cells and their possible attributes. -->
+  <!ELEMENT cell EMPTY>
+  <!ATTLIST cell x (A|B|C|D|E|F|G|H) #REQUIRED>
+  <!ATTLIST cell y (1|2|3|4|5|6|7|8) #REQUIRED>
