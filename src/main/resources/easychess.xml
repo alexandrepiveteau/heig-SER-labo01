@@ -32,29 +32,30 @@
     <game>
 
       <date hour="14:05" day="01" month="jan" year="2020"/>
+
       <referee>
         <first-name>Maria</first-name>
         <last-name>Wills</last-name>
       </referee>
 
-      <white-team score="0.5">
-        <team-mate person="Ssn1"/>
-        <team-mate person="Ssn2"/>
-      </white-team>
+      <team score="0.5">
+        <teammate person="Ssn1"/>
+        <teammate person="Ssn2"/>
+      </team>
 
-      <black-team score="1.5">
-        <team-mate person="Ssn3"/>
-        <team-mate person="Ssn4"/>
-      </black-team>
+      <team score="1.5">
+        <teammate person="Ssn3"/>
+        <teammate person="Ssn4"/>
+      </team>
 
       <moves>
-        <move type="pawn">
+        <move type="pawn" board="A">
           <cell x="A" y="3"/>
         </move>
-        <move type="pawn" accouncement="check" takes="pawn">
+        <move type="pawn" accouncement="check" takes="pawn" board="B">
           <cell x="A" y="5"/>
         </move>
-        <castling type="big">
+        <castling type="big" board="B">
           <cell x="B" y="4"/>
         </castling>
       </moves>

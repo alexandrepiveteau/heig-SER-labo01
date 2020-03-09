@@ -11,7 +11,7 @@
 
   <!-- MARK : Tournaments and games. -->
   <!ELEMENT tournament (game*)>
-  <!ELEMENT game (date, referee, white-team, black-team, moves)>
+  <!ELEMENT game (date, referee, team, team, moves)>
 
   <!-- MARK : Dates and time definitions. -->
   <!ELEMENT date EMPTY>
@@ -24,22 +24,23 @@
   <!-- NOTE : We make the explicit choice to model black and white teams with
   different tags, as we deemed that color inference based on position was not
   explicit enough.-->
-  <!ELEMENT white-team (team-mate, team-mate)>
-  <!ELEMENT black-team (team-mate, team-mate)>
-  <!ATTLIST white-team score (0|0.5|1|1.5|2) #REQUIRED>
-  <!ATTLIST black-team score (0|0.5|1|1.5|2) #REQUIRED>
-  <!ELEMENT team-mate EMPTY>
-  <!ATTLIST team-mate person IDREF #REQUIRED>
+  <!ELEMENT team (teammate, teammate)>
+  <!ATTLIST team score (0|0.5|1|1.5|2) #REQUIRED>
+  <!ELEMENT teammate EMPTY>
+  <!ATTLIST teammate person IDREF #REQUIRED>
 
   <!ELEMENT referee (first-name, last-name)>
 
   <!-- MARK : Possible moves in a game -->
   <!ELEMENT moves (move|castling)*>
   <!ELEMENT move (cell, cell?)>
+  <!ATTLIST move board (A|B) #REQUIRED>
   <!ATTLIST move type (pawn|rook|knight|bishop|queen|king) #REQUIRED>
-  <!ATTLIST move takes (pawn|rook|knight|bishop|queen|king) #IMPLIED>
+  <!ATTLIST move takes (pawn|rook|knight|bishop|queen) #IMPLIED>
+  <!ATTLIST move promotion (rook|knight|bishop|queen) #IMPLIED>
   <!ATTLIST move accouncement (checkmate|check|draw) #IMPLIED>
   <!ELEMENT castling (cell, cell?)>
+  <!ATTLIST castling board (A|B) #REQUIRED>
   <!ATTLIST castling type (small|big) #REQUIRED>
 
   <!-- MARK : Cells and their possible attributes. -->
