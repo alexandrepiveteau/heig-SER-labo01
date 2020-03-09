@@ -1,4 +1,4 @@
-<!ELEMENT EasyChess (player*, tournament*)>
+<!ELEMENT easy-chess (player*, tournament*)>
 
   <!-- MARK : Player definitions. -->
   <!-- NOTE : Players are shared amongst the different tournaments, since
@@ -10,8 +10,13 @@
   <!ELEMENT elo-ranking (#PCDATA)>
 
   <!-- MARK : Tournaments and games. -->
-  <!ELEMENT tournament (game*)>
-  <!ELEMENT game (date, referee, team, team, moves)>
+  <!ELEMENT tournament (team, team, team*, game, game*)>
+  <!ATTLIST tournament winner IDREF #REQUIRED>
+  <!ELEMENT game (date, referee, moves)>
+  <!ATTLIST game team-one IDREF #REQUIRED>
+  <!ATTLIST game team-one-score (0|0.5|1|1.5|2) #REQUIRED>
+  <!ATTLIST game team-two IDREF #REQUIRED>
+  <!ATTLIST game team-two-score (0|0.5|1|1.5|2) #REQUIRED>
 
   <!-- MARK : Dates and time definitions. -->
   <!ELEMENT date EMPTY>
@@ -25,7 +30,7 @@
   different tags, as we deemed that color inference based on position was not
   explicit enough.-->
   <!ELEMENT team (teammate, teammate)>
-  <!ATTLIST team score (0|0.5|1|1.5|2) #REQUIRED>
+  <!ATTLIST team id ID #REQUIRED>
   <!ELEMENT teammate EMPTY>
   <!ATTLIST teammate person IDREF #REQUIRED>
 

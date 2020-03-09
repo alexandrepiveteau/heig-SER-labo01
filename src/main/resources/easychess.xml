@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE EasyChess SYSTEM "easychess.dtd">
-<EasyChess>
+<!DOCTYPE easy-chess SYSTEM "easychess.dtd">
+<easy-chess>
 
   <player ssn="Ssn1">
     <first-name>Stacy</first-name>
@@ -27,9 +27,23 @@
     <elo-ranking>1864</elo-ranking>
   </player>
 
-  <tournament>
+  <tournament winner="Team1">
 
-    <game>
+    <team id="Team1">
+      <teammate person="Ssn1"/>
+      <teammate person="Ssn2"/>
+    </team>
+
+    <team id="Team2">
+      <teammate person="Ssn3"/>
+      <teammate person="Ssn4"/>
+    </team>
+
+    <game
+      team-one="Team2"
+      team-one-score="1"
+      team-two="Team2"
+      team-two-score="1">
 
       <date hour="14:05" day="01" month="jan" year="2020"/>
 
@@ -37,16 +51,6 @@
         <first-name>Maria</first-name>
         <last-name>Wills</last-name>
       </referee>
-
-      <team score="0.5">
-        <teammate person="Ssn1"/>
-        <teammate person="Ssn2"/>
-      </team>
-
-      <team score="1.5">
-        <teammate person="Ssn3"/>
-        <teammate person="Ssn4"/>
-      </team>
 
       <moves>
         <move type="pawn" board="A">
@@ -64,4 +68,4 @@
 
   </tournament>
 
-</EasyChess>
+</easy-chess>
