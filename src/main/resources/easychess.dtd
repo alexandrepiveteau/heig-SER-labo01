@@ -26,9 +26,6 @@
   <!ATTLIST date year CDATA #REQUIRED>
 
   <!-- MARK : Teams definitions. -->
-  <!-- NOTE : We make the explicit choice to model black and white teams with
-  different tags, as we deemed that color inference based on position was not
-  explicit enough.-->
   <!ELEMENT team (teammate, teammate)>
   <!ATTLIST team id ID #REQUIRED>
   <!ELEMENT teammate EMPTY>
