@@ -3,8 +3,9 @@
   <!-- MARK : Player definitions. -->
   <!-- NOTE : Players are shared amongst the different tournaments, since
   they're part of a single club. -->
-  <!ELEMENT player (first-name, last-name, elo-ranking)>
+  <!ELEMENT player (name, elo-ranking)>
   <!ATTLIST player ssn ID #REQUIRED>
+  <!ELEMENT name (first-name, last-name)>
   <!ELEMENT first-name (#PCDATA)>
   <!ELEMENT last-name (#PCDATA)>
   <!ELEMENT elo-ranking (#PCDATA)>
@@ -31,7 +32,7 @@
   <!ELEMENT teammate EMPTY>
   <!ATTLIST teammate person IDREF #REQUIRED>
 
-  <!ELEMENT referee (first-name, last-name)>
+  <!ELEMENT referee (name)>
 
   <!-- MARK : Possible moves in a game -->
   <!ELEMENT moves (move|castling)*>

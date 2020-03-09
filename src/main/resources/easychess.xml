@@ -4,26 +4,34 @@
 <easy-chess>
 
   <player ssn="Ssn1">
-    <first-name>Stacy</first-name>
-    <last-name>Waller</last-name>
+    <name>
+      <first-name>Stacy</first-name>
+      <last-name>Waller</last-name>
+    </name>
     <elo-ranking>1700</elo-ranking>
   </player>
 
   <player ssn="Ssn2">
-    <first-name>Hashir</first-name>
-    <last-name>Avila</last-name>
+    <name>
+      <first-name>Hashir</first-name>
+      <last-name>Avila</last-name>
+    </name>
     <elo-ranking>1800</elo-ranking>
   </player>
 
   <player ssn="Ssn3">
-    <first-name>Lucas</first-name>
-    <last-name>Horner</last-name>
+    <name>
+      <first-name>Lucas</first-name>
+      <last-name>Horner</last-name>
+    </name>
     <elo-ranking>1654</elo-ranking>
   </player>
 
   <player ssn="Ssn4">
-    <first-name>Sienna</first-name>
-    <last-name>Hart</last-name>
+    <name>
+      <first-name>Sienna</first-name>
+      <last-name>Hart</last-name>
+    </name>
     <elo-ranking>1864</elo-ranking>
   </player>
 
@@ -48,8 +56,10 @@
       <date hour="14:05" day="01" month="jan" year="2020"/>
 
       <referee>
-        <first-name>Maria</first-name>
-        <last-name>Wills</last-name>
+        <name>
+          <first-name>Maria</first-name>
+          <last-name>Wills</last-name>
+        </name>
       </referee>
 
       <moves>
