@@ -35,6 +35,30 @@
     <elo-ranking>1864</elo-ranking>
   </player>
 
+  <player ssn="Ssn5">
+    <name>
+      <first-name>Andreas</first-name>
+      <last-name>Hart</last-name>
+    </name>
+    <elo-ranking>1463</elo-ranking>
+  </player>
+
+  <player ssn="Ssn6">
+    <name>
+      <first-name>Arthur</first-name>
+      <last-name>Billinger</last-name>
+    </name>
+    <elo-ranking>1324</elo-ranking>
+  </player>
+
+  <player ssn="Ssn7">
+    <name>
+      <first-name>Matteo</first-name>
+      <last-name>Ferrari</last-name>
+    </name>
+    <elo-ranking>1742</elo-ranking>
+  </player>
+
   <tournament winner="Team1">
 
     <team id="Team1">
@@ -47,21 +71,23 @@
       <teammate person="Ssn4"/>
     </team>
 
+    <team id="Team3">
+      <teammate person="Ssn5"/>
+      <teammate person="Ssn6"/>
+    </team>
+
     <game
       team-one="Team2"
       team-one-score="1"
       team-two="Team2"
       team-two-score="1">
-
       <date hour="14:05" day="01" month="jan" year="2020"/>
-
       <referee>
         <name>
           <first-name>Maria</first-name>
           <last-name>Wills</last-name>
         </name>
       </referee>
-
       <moves>
         <move type="pawn" board="A">
           <cell x="A" y="3"/>
@@ -73,7 +99,111 @@
           <cell x="B" y="4"/>
         </castling>
       </moves>
+    </game>
 
+    <game
+      team-one="Team3"
+      team-one-score="1"
+      team-two="Team2"
+      team-two-score="1">
+      <date hour="13:15" day="03" month="mar" year="2020"/>
+      <referee>
+        <name>
+          <first-name>Mario</first-name>
+          <last-name>William</last-name>
+        </name>
+      </referee>
+      <moves>
+        <move board="B" type="pawn" promotion="knight">
+          <cell x="E" y="6"/>
+        </move>
+        <move board="A" type="king">
+          <cell x="D" y="7"/>
+        </move>
+        <move board="B" type="bishop" takes="queen" accouncement="draw">
+          <cell x="F" y="3"/>
+          <cell x="A" y="5"/>
+        </move>
+      </moves>
+    </game>
+
+  </tournament>
+
+  <tournament winner="Couple1">
+
+    <team id="Couple1">
+      <teammate person="Ssn3"/>
+      <teammate person="Ssn4"/>
+    </team>
+
+    <team id="Couple2">
+      <teammate person="Ssn5"/>
+      <teammate person="Ssn7"/>
+    </team>
+
+    <game
+      team-one="Couple1"
+      team-one-score="2"
+      team-two="Couple2"
+      team-two-score="0">
+      <date hour="13:17" day="01" month="jan" year="2021"/>
+      <referee>
+        <name>
+          <first-name>Obi-Wan</first-name>
+          <last-name>Kenobi</last-name>
+        </name>
+      </referee>
+      <moves>
+        <move board="A" type="pawn">
+          <cell x="E" y="5"/>
+        </move>
+        <move board="B" type="rook">
+          <cell x="D" y="1"/>
+        </move>
+        <move board="B" type="queen">
+          <cell x="C" y="7"/>
+          <cell x="C" y="1"/>
+        </move>
+        <move board="A" type="bishop" accouncement="check">
+          <cell x="E" y="3"/>
+        </move>
+        <move board="B" type="pawn" accouncement="checkmate">
+          <cell x="C" y="5"/>
+        </move>
+      </moves>
+    </game>
+
+    <game team-one="Couple2"
+          team-one-score="2"
+          team-two="Couple1"
+          team-two-score="0">
+      <date hour="03:14" day="03" month="mar" year="2014"/>
+      <referee>
+        <name>
+          <first-name>Luke</first-name>
+          <last-name>Potter</last-name>
+        </name>
+      </referee>
+      <moves>
+        <move board="B" type="queen">
+          <cell x="A" y="7"/>
+        </move>
+        <move board="A" type="rook">
+          <cell x="D" y="1"/>
+        </move>
+        <move board="A" type="bishop">
+          <cell x="G" y="5"/>
+        </move>
+        <castling board="A" type="small">
+          <cell x="D" y="6"/>
+        </castling>
+        <move board="B" type="queen" accouncement="checkmate">
+          <cell x="E" y="7"/>
+        </move>
+        <move board="A" type="bishop" accouncement="checkmate">
+          <cell x="C" y="4"/>
+        </move>
+      </moves>
     </game>
 
   </tournament>
